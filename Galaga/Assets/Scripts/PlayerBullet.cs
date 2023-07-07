@@ -12,7 +12,7 @@ public class PlayerBullet : MonoBehaviour
         bulletRigidbody = GetComponent<Rigidbody>();
         bulletRigidbody.velocity = transform.forward * speed; ;
 
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 5f);
     }
 
     // Update is called once per frame
@@ -26,12 +26,13 @@ public class PlayerBullet : MonoBehaviour
             //{
             //    PlayerControler.Die();
             //}
+            
             EnemyBullet enemy = other.GetComponent<EnemyBullet>();
             if (enemy != null) 
             {
                 enemy.Die();
             }
-            
+
         }
 
 
@@ -40,5 +41,7 @@ public class PlayerBullet : MonoBehaviour
     public void Die()
     {
         gameObject.SetActive(false);
+
+        
     }
 }

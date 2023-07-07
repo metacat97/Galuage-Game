@@ -19,7 +19,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("키 입력 받았음");
+            //Debug.Log("키 입력 받았음");
+
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation, bulletPool);
         }
         float xInput = Input.GetAxis("Horizontal");
@@ -32,5 +33,8 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         gameObject.SetActive(false);
+
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        gameManager.EndGame();
     }    
 }
